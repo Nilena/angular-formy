@@ -1,0 +1,102 @@
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+
+input .ng-invalid .ng-dirty {
+    outline:red;
+}
+ .ng-valid {
+    outline: 1px solid green;}
+</style>
+<div class="container">
+        <br>
+    <FIELDSET>
+            <br>  
+        <legend style="text-align:center"> Please Register  </legend>
+
+        <form style="outline:none" name="form1" id="form" ng-submit='adduserSave()'>  
+
+          <div class="form-group" ng-class="{ 'has-error' : form1.name.$invalid && !form1.name.$pristine }">
+            <label for="Name">Name:</label>
+            
+            <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+           
+               <input type="text" name="name" class="form-control"  placeholder="Enter your full name" ng-model="userDetails.name"ng-pattern="/^([a-zaA-Z]+)(\s+)([a-zA-Z]+)\b/" autocomplete="off" tabindex="1" required>
+            </div> <p ng-show="form1.name.$invalid && !form1.name.$pristine" class="help-block">Your full name is required.</p>
+            </div>
+
+           <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+           <input type="text" ng-class="{ hass-error :  }" ng-model="userDetails.name"  class="form-control"  id="name" placeholder="Enter your full name" ng-pattern="/^([a-zaA-Z]+)(\s+)([a-zA-Z]+)\b/" name="name" autocomplete="off" tabindex="1" autofocus="auto" required> -->
+
+            <!-- <div class="alert alert-warning">
+  <strong>Invalid username(eg:Nilena Alexander)
+</strong></div> -->
+    <!--          <span ng-show="form1.name.invalid ">Invalid username(eg:Nilena Alexander)</span>
+    </div>
+           -->
+            <div class="form-group" ng-class="{ 'has-error' : form1.mobile.$invalid && !form1.mobile.$pristine }">
+              <label for="mobile">Mobile:</label>
+                <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                 <input type="text" ng-model="userDetails.mobile"  class="form-control" id="number" placeholder="Enter your mobile number" ng-pattern="/^[0-9]{10}\b/"  name="mobile" autocomplete="off" tabindex="2" required>
+             
+
+              </div> <p ng-show="form1.mobile.$invalid && !form1.mobile.$pristine" class="help-block">Invalid number.</p>
+              </div>
+
+            <label for="gender">Gender:</label>
+            <div> 
+             <label class="radio-inline"><input type="radio" name="optradio"tabindex="3" checked>Male</label>
+             <label class="radio-inline"><input type="radio" name="optradio" tabindex="3">Female</label>
+              <label class="radio-inline"><input type="radio" name="optradio" tabindex="3">Others</label>
+          </div>
+          <br>
+            
+        <div class="form-group" ng-class="{ 'has-error' : form1.email.$invalid && !form1.email.$pristine }">  
+           <label for="email">Email:</label>
+             <div class="input-group">
+           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+           <input type="text" ng-model="userDetails.email"  class="form-control" id="email" placeholder="Enter your email" name="email" autocomplete="off" ng-pattern="/^([a-z]+)[\.]?\w+@[a-z]+\.[a-z]{2,3}\b/" tabindex="4" required>
+          
+
+        </div>  <p ng-show="form1.email.$invalid && !form1.email.$pristine" class="help-block">Invalid email.</p>
+       </div>
+    
+         <div class="form-group" ng-class="{ 'has-error' : form1.password.$invalid && !form1.password.$pristine }">  
+           <label for="password">Password:</label>
+             <div class="input-group">
+           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+           <input type="text" ng-model="userDetails.password"  class="form-control" placeholder="Enter your password" name="password" autocomplete="off" ng-pattern="/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@!*#$.%]).{6,20})/i"  tabindex="4" required>
+        </div>
+        <p ng-show="form1.password.$invalid && !form1.password.$pristine" class="help-block">Invalid Password. It should contain atleast 6char,a specialchar, number, lowercase</p>
+       </div>
+    <!-- <div class="form-group" ng-class="{ 'has-error' : form1.confirmpassword.$invalid && !form1.confirmpassword.$pristine }">  
+           <label for="password">Confirm Password:</label>
+             <div class="input-group">
+           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+           <input type="text" ng-model="userDetails.confirmpassword"  class="form-control" placeholder="Enter your password again" name="password" autocomplete="off" ng-pattern="/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@!*#$.%]).{6,20})/i"  tabindex="5" required>
+            <p ng-show="form1.confirmpassword.$invalid && !form1.confirmpassword.$pristine" class="help-block">Invalid Password. It should contain atleast 6char,a specialchar, number, lowercase</p></p>
+
+        </div>
+       </div> -->
+   
+           <div class="form-group" >
+      <label for="address">Address:</label>
+      <textarea ng-model="userDetails.address"  class="form-control" rows="5" id="address" placeholder="Enter your address" name="address" autocomplete="off" tabindex="7" ng-pattern="/\w.*/i" required></textarea>
+      <!-- <input type="texarea" class="form-control" id="address" placeholder="Enter your address" name="address" autocomplete="off"> -->
+    </div>
+    <button type="submit" id="submit"  ng-disabled="form1.$invalid" class="btn btn-default" tabindex="8">Submit</button> 
+           <button type="submit" ng-click='back()'  class="btn btn-default" tabindex="11" >Cancel</button> 
+  </form>  
+      
+    </div>
+  </div>
+  
+</div>
+</FIELDSET>
+</div><!-- 
+<script type="text/javascript" src="main.js"></script> -->
